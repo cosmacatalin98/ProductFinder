@@ -1,6 +1,7 @@
 package mypackage;
 
 import businessLayer.ProductBLL;
+import data.DBAccessFacade;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -32,7 +33,7 @@ public class Controller {
      */
     @GetMapping("/allProducts")
     public List<Object> GetAllProducts() {
-        return ProductBLL.ViewAllProducts();
+        return DBAccessFacade.GetAll("Product");
     }
 
     /**
@@ -46,7 +47,7 @@ public class Controller {
      */
     @RequestMapping(value = "/insertNewProduct", method = RequestMethod.POST)
     public String InsertNewProduct(@RequestBody Product prod) {
-        ProductBLL.AddNewProduct(prod);
+        DBAccessFacade.InsertItem(prod);
         return prod.toString();
     }
 
