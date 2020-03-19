@@ -8,10 +8,10 @@ public class Product {
     private String Um;
     private int Price;
 
-    public Product(int productId, int storeId, String productName, int quantity, String um, int price) {
-        ProductId = productId;
-        StoreId = storeId;
-        ProductName = productName;
+    public Product(int productid, int storeid, String productname, int quantity, String um, int price) {
+        ProductId = productid;
+        StoreId = storeid;
+        ProductName = productname;
         Quantity = quantity;
         Um = um;
         Price = price;

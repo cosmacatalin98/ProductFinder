@@ -24,7 +24,7 @@ public class Controller {
     }
 
     @RequestMapping(value = "/insertNewProduct", method = RequestMethod.POST)
-    public String persistPerson(@RequestBody Person prod) {
+    public String persistPerson(@RequestBody Product prod) {
         System.out.println(prod.toString());
         return prod.toString();
     }
