@@ -36,4 +36,15 @@ public class DBAccessFacade {
         }
     }
 
+    public static void DeleteItem(String type, int id) {
+        switch (type) {
+            case "Product":
+                ProductBLL.DeleteProduct(id);
+                break;
+            default:
+                System.out.println("Wrong type");
+                break;
+        }
+    }
+
 }

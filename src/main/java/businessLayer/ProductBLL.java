@@ -77,5 +77,22 @@ public class ProductBLL {
         }
     }
 
+    public static void DeleteProduct(int id) {
+
+        try {
+            Connection dbConnection = ConnectionFactory.getConnection();
+
+            String query = " delete from products where ProductId = ?";
+            PreparedStatement st = dbConnection.prepareStatement(query);
+            st.setInt(1, id);
+            st.execute();
+
+            ConnectionFactory.close(dbConnection);
+        } catch (Exception er) {
+            System.err.println("Deleting the product failed!");
+            System.err.println(er.getMessage());
+        }
+    }
+
 
 }

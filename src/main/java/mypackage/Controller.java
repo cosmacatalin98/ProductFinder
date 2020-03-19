@@ -4,7 +4,10 @@ import businessLayer.ProductBLL;
 import data.DBAccessFacade;
 import org.springframework.web.bind.annotation.*;
 
+import javax.websocket.server.PathParam;
 import java.util.List;
+
+import static businessLayer.ProductBLL.DeleteProduct;
 
 @RestController
 public class Controller {
@@ -49,6 +52,19 @@ public class Controller {
     public String InsertNewProduct(@RequestBody Product prod) {
         DBAccessFacade.InsertItem(prod);
         return prod.toString();
+    }
+
+    /**
+     * Aceasta metoda sterge un produs pe baza unui
+     * id primit ca si parametru.
+     *
+     * @param id Id-ul dupa care se realizeaza stergerea.
+     * @return String Returneaza un mesaj de confirmare.
+     */
+    @RequestMapping(value = "/deleteProduct/{id}", method = RequestMethod.DELETE)
+    public String DeleteProduct(@PathVariable int id) {
+        DBAccessFacade.DeleteItem("Product", id);
+        return "Success";
     }
 
 }
