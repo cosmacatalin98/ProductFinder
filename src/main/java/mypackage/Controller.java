@@ -4,6 +4,7 @@ import data.DBAccessFacade;
 import org.springframework.web.bind.annotation.*;
 import tableclasses.Product;
 import tableclasses.Store;
+import tableclasses.User;
 
 import java.util.List;
 
@@ -24,6 +25,8 @@ public class Controller {
     public String GetHelloWorld() {
         return "Hello from Product Finder Application !";
     }
+
+    //Endpoint-uri pentru obiectele de tip Product
 
     /**
      * Aceasta metoda ne returneaza in Postman  o lista cu toate obiectele
@@ -65,6 +68,7 @@ public class Controller {
         return "Success";
     }
 
+    //Endpoint-uri pentru obiectele de tip Store
 
     /**
      * Aceasta metoda ne returneaza in Postman o lista cu toate obiectele
@@ -106,6 +110,8 @@ public class Controller {
         return "Success";
     }
 
+    //Endpoint-uri pentru obiectele de tip User
+
     /**
      * Aceasta metoda ne returneaza in Postman o lista cu toate obiectele
      * din baza de date din tabela Users folosind adresa
@@ -116,6 +122,21 @@ public class Controller {
     @GetMapping("/allUsers")
     public List<Object> GetAllUsers() {
         return DBAccessFacade.GetAll("User");
+    }
+
+    /**
+     * Aceasta metoda ne insereaza un utilizator nou primit ca si
+     * parametru din Postman folosind adresa
+     * http://localhost:8080/insertNewUser
+     *
+     * @param usr Utilizatorul primit ca si parametru in format json
+     * @return String Returneaza obiectul ca si String pe post de mesaj
+     * de confirmare.
+     */
+    @RequestMapping(value = "/insertNewUser", method = RequestMethod.POST)
+    public String InsertNewUser(@RequestBody User usr) {
+        DBAccessFacade.InsertItem(usr);
+        return usr.toString();
     }
 
 }
