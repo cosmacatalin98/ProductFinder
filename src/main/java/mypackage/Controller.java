@@ -139,4 +139,17 @@ public class Controller {
         return usr.toString();
     }
 
+    /**
+     * Aceasta metoda sterge un utilizator pe baza unui
+     * id primit ca si parametru.
+     *
+     * @param id Id-ul dupa care se realizeaza stergerea.
+     * @return String Returneaza un mesaj de confirmare.
+     */
+    @RequestMapping(value = "/deleteUser/{id}", method = RequestMethod.DELETE)
+    public String DeleteUser(@PathVariable int id) {
+        DBAccessFacade.DeleteItem("User", id);
+        return "Success";
+    }
+
 }
