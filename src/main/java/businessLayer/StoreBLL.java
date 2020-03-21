@@ -60,7 +60,7 @@ public class StoreBLL {
 
             st.setInt(1, s.getStoreId());
             st.setString(2, s.getName());
-            st.setString(2, s.getAddress());
+            st.setString(3, s.getAddress());
 
             st.execute();
 

@@ -3,6 +3,7 @@ package mypackage;
 import data.DBAccessFacade;
 import org.springframework.web.bind.annotation.*;
 import tableclasses.Product;
+import tableclasses.Store;
 
 import java.util.List;
 
@@ -74,6 +75,21 @@ public class Controller {
     @GetMapping("/allStores")
     public List<Object> GetAllStores() {
         return DBAccessFacade.GetAll("Store");
+    }
+
+    /**
+     * Aceasta metoda ne insereaza un magazin nou primit ca si
+     * parametru din Postman folosind adresa
+     * http://localhost:8080/insertNewStore
+     *
+     * @param sto Magazinul primit ca si parametru in format json
+     * @return String Returneaza obiectul ca si String pe post de mesaj
+     * de confirmare.
+     */
+    @RequestMapping(value = "/insertNewStore", method = RequestMethod.POST)
+    public String InsertNewStore(@RequestBody Store sto) {
+        DBAccessFacade.InsertItem(sto);
+        return sto.toString();
     }
 
 }

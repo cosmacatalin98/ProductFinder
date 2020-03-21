@@ -5,8 +5,8 @@ public class Store {
     private String Name;
     private String Address;
 
-    public Store(int storeId, String name, String address) {
-        StoreId = storeId;
+    public Store(int storeid, String name, String address) {
+        StoreId = storeid;
         Name = name;
         Address = address;
     }
@@ -33,5 +33,14 @@ public class Store {
 
     public void setAddress(String address) {
         Address = address;
+    }
+
+    @Override
+    public String toString() {
+        return "Store{" +
+                "StoreId=" + StoreId +
+                ", Name='" + Name + '\'' +
+                ", Address='" + Address + '\'' +
+                '}';
     }
 }
