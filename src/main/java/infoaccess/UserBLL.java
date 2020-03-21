@@ -11,10 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Clasa care se ocupa cu operatiile de inserare, actualizare si stergere
- * aplicate pe tablela utiizatori.
- *
- * @author Cosma Catalin
+ * Aceasta clasa se ocupa cu operatiile de
+ * manipulare a datelor din tabela users.
  */
 public class UserBLL {
 

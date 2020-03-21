@@ -9,10 +9,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * Clasa care relizeaza conectarea si deconectarea la baza de date.
- *
- * @author Cosma Catalin
- *
+ * Aceasta clasa se ocupa cu stabilirea unei conexiuni la baza de date.
  */
 public class ConnectionFactory {
 
@@ -24,9 +21,6 @@ public class ConnectionFactory {
 
     private static ConnectionFactory singleInstance = new ConnectionFactory();
 
-    /**
-     * Constructorul clasei
-     */
     private ConnectionFactory() {
         try {
             Class.forName(DRIVER);
@@ -36,9 +30,11 @@ public class ConnectionFactory {
     }
 
     /**
-     * Metoda care realizeaza conexiunea la baza de date pe baza atributelor clasei.
+     * Aceasta metoda creaza o conexiunea la baza de date
+     * iar in cazu in care aceasta nu poate fi creata
+     * trimite un mesaj de eroare.
      *
-     * @return
+     * @return Connection Conexiunea creata.
      */
     private Connection createConnection() {
         Connection connection = null;
@@ -51,14 +47,21 @@ public class ConnectionFactory {
         return connection;
     }
 
+    /**
+     * Aceasta metoda este folosita pentru a returna
+     * conexiunea la baza de date.
+     *
+     * @return Connection Conexiunea la baza de date.
+     */
     public static Connection getConnection() {
         return singleInstance.createConnection();
     }
 
     /**
-     * Metoda care inchide conexiunea la baza de date
+     * Aceasta metoda este utilizata pentru a incheia
+     * conexiunea cu baza de date.
      *
-     * @param connection
+     * @param connection Conexiunea care trebuie incheiata.
      */
     public static void close(Connection connection) {
         if (connection != null) {
@@ -70,6 +73,12 @@ public class ConnectionFactory {
         }
     }
 
+    /**
+     * Aceasta metoda este utilizata pentru
+     * a termina o interogare la baza de date.
+     *
+     * @param statement Interogarea care trebuie terminata.
+     */
     public static void close(Statement statement) {
         if (statement != null) {
             try {
@@ -80,6 +89,12 @@ public class ConnectionFactory {
         }
     }
 
+    /**
+     * Aceasta metoda este utilizata pentru incheia un set
+     * de rezultate.
+     *
+     * @param resultSet Setul de rezultate care trebuie incheiat.
+     */
     public static void close(ResultSet resultSet) {
         if (resultSet != null) {
             try {

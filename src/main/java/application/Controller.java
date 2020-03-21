@@ -8,6 +8,10 @@ import domain.User;
 
 import java.util.List;
 
+/**
+ * Aceasta clasa se ocupa in special de comunicarea aplicatiei
+ * cu programul Postman.
+ */
 @RestController
 public class Controller {
 
@@ -16,7 +20,7 @@ public class Controller {
 
     /**
      * Aceasta metoda este folosita pentru a testa
-     * conexiunea la Postman folosind adresa
+     * conexiunea la Postman folosind adresa :
      * localhost:8080/test
      *
      * @return String Returneaza un mesaj de test
@@ -30,7 +34,7 @@ public class Controller {
 
     /**
      * Aceasta metoda ne returneaza in Postman  o lista cu toate obiectele
-     * din baza de date din tabela Produse folosind adresa
+     * din baza de date din tabela Produse folosind adresa :
      * http://localhost:8080/allProducts
      *
      * @return List<Object> Returneaza o lista cu toate produsele.
@@ -42,7 +46,7 @@ public class Controller {
 
     /**
      * Aceasta metoda ne insereaza un produs nou primit ca si
-     * parametru din Postman folosind adresa
+     * parametru din Postman folosind adresa :
      * http://localhost:8080/insertNewProduct
      *
      * @param prod Produsul primit ca si parametru in format json
@@ -72,7 +76,7 @@ public class Controller {
 
     /**
      * Aceasta metoda ne returneaza in Postman o lista cu toate obiectele
-     * din baza de date din tabela Stores folosind adresa
+     * din baza de date din tabela Stores folosind adresa :
      * http://localhost:8080/allStores
      *
      * @return List<Object> Returneaza o lista cu toate magazinele.
@@ -84,7 +88,7 @@ public class Controller {
 
     /**
      * Aceasta metoda ne insereaza un magazin nou primit ca si
-     * parametru din Postman folosind adresa
+     * parametru din Postman folosind adresa :
      * http://localhost:8080/insertNewStore
      *
      * @param sto Magazinul primit ca si parametru in format json
@@ -114,7 +118,7 @@ public class Controller {
 
     /**
      * Aceasta metoda ne returneaza in Postman o lista cu toate obiectele
-     * din baza de date din tabela Users folosind adresa
+     * din baza de date din tabela Users folosind adresa :
      * http://localhost:8080/allUsers
      *
      * @return List<Object> Returneaza o lista cu toti utilizatorii.
@@ -126,7 +130,7 @@ public class Controller {
 
     /**
      * Aceasta metoda ne insereaza un utilizator nou primit ca si
-     * parametru din Postman folosind adresa
+     * parametru din Postman folosind adresa :
      * http://localhost:8080/insertNewUser
      *
      * @param usr Utilizatorul primit ca si parametru in format json
