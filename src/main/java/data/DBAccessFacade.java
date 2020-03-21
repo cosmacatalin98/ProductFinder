@@ -1,7 +1,9 @@
 package data;
 
 import businessLayer.ProductBLL;
-import mypackage.Product;
+import businessLayer.StoreBLL;
+import tableclasses.Product;
+import tableclasses.Store;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +17,9 @@ public class DBAccessFacade {
         switch (type) {
             case "Product":
                 objects = ProductBLL.ViewAllProducts();
+                break;
+            case "Store":
+                objects = StoreBLL.ViewAllStores();
                 break;
             default:
                 System.out.println("Wrong type");
@@ -30,6 +35,9 @@ public class DBAccessFacade {
             case "Product":
                 ProductBLL.AddNewProduct((Product) obj);
                 break;
+            case "Store":
+                StoreBLL.AddNewStore((Store) obj);
+                break;
             default:
                 System.out.println("Wrong type");
                 break;
@@ -40,6 +48,9 @@ public class DBAccessFacade {
         switch (type) {
             case "Product":
                 ProductBLL.DeleteProduct(id);
+                break;
+            case "Store":
+                StoreBLL.DeleteStore(id);
                 break;
             default:
                 System.out.println("Wrong type");

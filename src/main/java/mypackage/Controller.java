@@ -1,13 +1,10 @@
 package mypackage;
 
-import businessLayer.ProductBLL;
 import data.DBAccessFacade;
 import org.springframework.web.bind.annotation.*;
+import tableclasses.Product;
 
-import javax.websocket.server.PathParam;
 import java.util.List;
-
-import static businessLayer.ProductBLL.DeleteProduct;
 
 @RestController
 public class Controller {
@@ -65,6 +62,18 @@ public class Controller {
     public String DeleteProduct(@PathVariable int id) {
         DBAccessFacade.DeleteItem("Product", id);
         return "Success";
+    }
+
+    /**
+     * Aceasta metoda ne returneaza in Postman o lista cu toate obiectele
+     * din baza de date din tabela Stores folosind adresa
+     * http://localhost:8080/allStores
+     *
+     * @return List<Object> Returneaza o lista cu toate magazinele.
+     */
+    @GetMapping("/allStores")
+    public List<Object> GetAllStores() {
+        return DBAccessFacade.GetAll("Store");
     }
 
 }

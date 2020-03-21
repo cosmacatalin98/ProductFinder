@@ -1,4 +1,4 @@
-package mypackage;
+package tableclasses;
 
 public class Product {
     private int ProductId;

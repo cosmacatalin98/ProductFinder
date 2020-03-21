@@ -1,7 +1,7 @@
 package businessLayer;
 
 import data.ConnectionFactory;
-import tableclasses.Product;
+import tableclasses.Store;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,84 +12,78 @@ import java.util.List;
 
 /**
  * Clasa care se ocupa cu operatiile de inserare, actualizare si stergere
- * aplicate pe tablela produse.
+ * aplicate pe tablela magazine.
  *
  * @author Cosma Catalin
  */
-public class ProductBLL {
+public class StoreBLL {
 
-    public static List<Object> ViewAllProducts() {
+    public static List<Object> ViewAllStores() {
 
-        List<Object> products = new ArrayList<Object>();
+        List<Object> stores = new ArrayList<Object>();
 
         try {
             Connection dbConnection = ConnectionFactory.getConnection();
-            String query = "SELECT * FROM Products";
+            String query = "SELECT * FROM Stores";
 
             Statement st = dbConnection.createStatement();
 
             ResultSet rs = st.executeQuery(query);
 
             while (rs.next()) {
-                int prId = rs.getInt("ProductId");
                 int stId = rs.getInt("StoreId");
-                String prName = rs.getString("ProductName");
-                int qua = rs.getInt("Quantity");
-                String ume = rs.getString("Um");
-                int pri = rs.getInt("Price");
+                String stName = rs.getString("Name");
+                String addr = rs.getString("Address");
 
-                Product p = new Product(prId, stId, prName, qua, ume, pri);
+                Store s = new Store(stId, stName, addr);
 
-                products.add(p);
+                stores.add(s);
 
             }
             ConnectionFactory.close(rs);
             ConnectionFactory.close(st);
             ConnectionFactory.close(dbConnection);
         } catch (Exception er) {
-            System.err.println("View all products failed! ");
+            System.err.println("View all stores failed! ");
             System.err.println(er.getMessage());
         }
 
-        return products;
+        return stores;
     }
 
-    public static void AddNewProduct(Product pr) {
+    public static void AddNewStore(Store s) {
         try {
             Connection dbConnection = ConnectionFactory.getConnection();
 
-            String query = " insert into products (ProductId, StoreId, ProductName, Quantity, Um, Price)" + " values (?, ?, ?, ?, ?, ?)";
+            String query = " insert into stores (StoreId, Name, Address)" + " values (?, ?, ?)";
             PreparedStatement st = dbConnection.prepareStatement(query);
 
-            st.setInt(1, pr.getProductId());
-            st.setInt(2, pr.getStoreId());
-            st.setString(3, pr.getProductName());
-            st.setInt(4, pr.getQuantity());
-            st.setString(5, pr.getUm());
-            st.setInt(6, pr.getPrice());
+            st.setInt(1, s.getStoreId());
+            st.setString(2, s.getName());
+            st.setString(2, s.getAddress());
 
             st.execute();
 
             ConnectionFactory.close(dbConnection);
         } catch (Exception er) {
-            System.err.println("Adding a new product failed! ");
+            System.err.println("Adding a new store failed! ");
             System.err.println(er.getMessage());
         }
     }
 
-    public static void DeleteProduct(int id) {
+    public static void DeleteStore(int id) {
 
         try {
             Connection dbConnection = ConnectionFactory.getConnection();
 
-            String query = " delete from products where ProductId = ?";
+            String query = " delete from stores where StoreId = ?";
             PreparedStatement st = dbConnection.prepareStatement(query);
             st.setInt(1, id);
             st.execute();
 
             ConnectionFactory.close(dbConnection);
         } catch (Exception er) {
-            System.err.println("Deleting the product failed!");
+            System.err.println("Deleting the store failed!");
             System.err.println(er.getMessage());
         }
     }
