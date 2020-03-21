@@ -65,6 +65,7 @@ public class Controller {
         return "Success";
     }
 
+
     /**
      * Aceasta metoda ne returneaza in Postman o lista cu toate obiectele
      * din baza de date din tabela Stores folosind adresa
@@ -90,6 +91,19 @@ public class Controller {
     public String InsertNewStore(@RequestBody Store sto) {
         DBAccessFacade.InsertItem(sto);
         return sto.toString();
+    }
+
+    /**
+     * Aceasta metoda sterge un magazin pe baza unui
+     * id primit ca si parametru.
+     *
+     * @param id Id-ul dupa care se realizeaza stergerea.
+     * @return String Returneaza un mesaj de confirmare.
+     */
+    @RequestMapping(value = "/deleteStore/{id}", method = RequestMethod.DELETE)
+    public String DeleteStore(@PathVariable int id) {
+        DBAccessFacade.DeleteItem("Store", id);
+        return "Success";
     }
 
 }
