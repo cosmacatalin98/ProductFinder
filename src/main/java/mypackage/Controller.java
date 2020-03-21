@@ -106,4 +106,16 @@ public class Controller {
         return "Success";
     }
 
+    /**
+     * Aceasta metoda ne returneaza in Postman o lista cu toate obiectele
+     * din baza de date din tabela Users folosind adresa
+     * http://localhost:8080/allUsers
+     *
+     * @return List<Object> Returneaza o lista cu toti utilizatorii.
+     */
+    @GetMapping("/allUsers")
+    public List<Object> GetAllUsers() {
+        return DBAccessFacade.GetAll("User");
+    }
+
 }
