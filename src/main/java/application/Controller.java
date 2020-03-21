@@ -1,10 +1,10 @@
-package mypackage;
+package application;
 
-import data.DBAccessFacade;
+import infoaccess.DBAccessFacade;
 import org.springframework.web.bind.annotation.*;
-import tableclasses.Product;
-import tableclasses.Store;
-import tableclasses.User;
+import domain.Product;
+import domain.Store;
+import domain.User;
 
 import java.util.List;
 

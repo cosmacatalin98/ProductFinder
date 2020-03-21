@@ -1,11 +1,11 @@
-package data;
+package infoaccess;
 
-import businessLayer.ProductBLL;
-import businessLayer.StoreBLL;
-import businessLayer.UserBLL;
-import tableclasses.Product;
-import tableclasses.Store;
-import tableclasses.User;
+import infoaccess.ProductBLL;
+import infoaccess.StoreBLL;
+import infoaccess.UserBLL;
+import domain.Product;
+import domain.Store;
+import domain.User;
 
 import java.util.ArrayList;
 import java.util.List;

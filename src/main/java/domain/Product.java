@@ -1,4 +1,4 @@
-package tableclasses;
+package domain;
 
 public class Product {
     private int ProductId;

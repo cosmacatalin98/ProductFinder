@@ -1,4 +1,4 @@
-package tableclasses;
+package domain;
 
 public class User {
     private int UserId;

@@ -1,7 +1,7 @@
-package businessLayer;
+package infoaccess;
 
-import data.ConnectionFactory;
-import tableclasses.Product;
+import connection.ConnectionFactory;
+import domain.Product;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
