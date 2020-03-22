@@ -14,10 +14,13 @@ import java.util.List;
  * Aceasta clasa se ocupa cu operatiile de
  * manipulare a datelor din tabela products.
  */
-public class ProductBLL {
+public class ProductBLL implements DBAccessOperations {
 
-    public static List<Object> ViewAllProducts() {
+    public ProductBLL() {
+    }
 
+    @Override
+    public List<Object> viewALL() {
         List<Object> products = new ArrayList<Object>();
 
         try {
@@ -52,10 +55,11 @@ public class ProductBLL {
         return products;
     }
 
-    public static void AddNewProduct(Product pr) {
+    @Override
+    public void insert(Object obj) {
         try {
             Connection dbConnection = ConnectionFactory.getConnection();
-
+            Product pr = (Product) obj;
             String query = " insert into products (ProductId, StoreId, ProductName, Quantity, Um, Price)" + " values (?, ?, ?, ?, ?, ?)";
             PreparedStatement st = dbConnection.prepareStatement(query);
 
@@ -75,8 +79,8 @@ public class ProductBLL {
         }
     }
 
-    public static void DeleteProduct(int id) {
-
+    @Override
+    public void delete(int id) {
         try {
             Connection dbConnection = ConnectionFactory.getConnection();
 
@@ -92,5 +96,8 @@ public class ProductBLL {
         }
     }
 
-
+    @Override
+    public boolean findByID(int id) {
+        return false;
+    }
 }

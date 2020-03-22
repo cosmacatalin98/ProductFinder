@@ -14,10 +14,10 @@ import java.util.List;
  * Aceasta clasa se ocupa cu operatiile de
  * manipulare a datelor din tabela stores.
  */
-public class StoreBLL {
+public class StoreBLL implements DBAccessOperations {
 
-    public static List<Object> ViewAllStores() {
-
+    @Override
+    public List<Object> viewALL() {
         List<Object> stores = new ArrayList<Object>();
 
         try {
@@ -49,9 +49,11 @@ public class StoreBLL {
         return stores;
     }
 
-    public static void AddNewStore(Store s) {
+    @Override
+    public void insert(Object obj) {
         try {
             Connection dbConnection = ConnectionFactory.getConnection();
+            Store s = (Store) obj;
 
             String query = " insert into stores (StoreId, Name, Address)" + " values (?, ?, ?)";
             PreparedStatement st = dbConnection.prepareStatement(query);
@@ -69,8 +71,8 @@ public class StoreBLL {
         }
     }
 
-    public static void DeleteStore(int id) {
-
+    @Override
+    public void delete(int id) {
         try {
             Connection dbConnection = ConnectionFactory.getConnection();
 
@@ -86,5 +88,8 @@ public class StoreBLL {
         }
     }
 
-
+    @Override
+    public boolean findByID(int id) {
+        return false;
+    }
 }

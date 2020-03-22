@@ -14,10 +14,12 @@ import java.util.List;
  * Aceasta clasa se ocupa cu operatiile de
  * manipulare a datelor din tabela users.
  */
-public class UserBLL {
+public class UserBLL implements DBAccessOperations {
+    public UserBLL() {
+    }
 
-    public static List<Object> ViewAllUsers() {
-
+    @Override
+    public List<Object> viewALL() {
         List<Object> users = new ArrayList<Object>();
 
         try {
@@ -49,9 +51,11 @@ public class UserBLL {
         return users;
     }
 
-    public static void AddNewUser(User u) {
+    @Override
+    public void insert(Object obj) {
         try {
             Connection dbConnection = ConnectionFactory.getConnection();
+            User u = (User) obj;
 
             String query = " insert into users (UserId, Username, Password)" + " values (?, ?, ?)";
             PreparedStatement st = dbConnection.prepareStatement(query);
@@ -67,10 +71,11 @@ public class UserBLL {
             System.err.println("Adding a new user failed! ");
             System.err.println(er.getMessage());
         }
+
     }
 
-    public static void DeleteUser(int id) {
-
+    @Override
+    public void delete(int id) {
         try {
             Connection dbConnection = ConnectionFactory.getConnection();
 
@@ -86,5 +91,9 @@ public class UserBLL {
         }
     }
 
+    @Override
+    public boolean findByID(int id) {
+        return false;
+    }
 
 }

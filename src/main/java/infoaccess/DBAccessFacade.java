@@ -13,6 +13,24 @@ import java.util.List;
  * utilizator.
  */
 public class DBAccessFacade {
+
+    private DBAccessOperations dbao;
+
+    public DBAccessFacade(DBAccessOperations dbao) {
+        this.dbao = dbao;
+    }
+
+    /**
+     * Aceasta metoda nu a fost implementata  inca dar se stie cum ar
+     * trebui sa se comporte.
+     *
+     * @param id
+     * @return
+     */
+    public boolean findBy(int id) {
+        return dbao.findByID(id);
+    }
+
     /**
      * Aceasta metoda returneaza toate elementele dintr-o tabela
      * din baza de date in functie  de  parametrul type.
@@ -26,13 +44,16 @@ public class DBAccessFacade {
 
         switch (type) {
             case "Product":
-                objects = ProductBLL.ViewAllProducts();
+                ProductBLL pbll = new ProductBLL();
+                objects = pbll.viewALL();
                 break;
             case "Store":
-                objects = StoreBLL.ViewAllStores();
+                StoreBLL sbll = new StoreBLL();
+                objects = sbll.viewALL();
                 break;
             case "User":
-                objects = UserBLL.ViewAllUsers();
+                UserBLL ubll = new UserBLL();
+                objects = ubll.viewALL();
                 break;
             default:
                 System.out.println("Wrong type");
@@ -52,13 +73,16 @@ public class DBAccessFacade {
         String type = cls.getSimpleName();
         switch (type) {
             case "Product":
-                ProductBLL.AddNewProduct((Product) obj);
+                ProductBLL pbll = new ProductBLL();
+                pbll.insert((Product) obj);
                 break;
             case "Store":
-                StoreBLL.AddNewStore((Store) obj);
+                StoreBLL sbll = new StoreBLL();
+                sbll.insert((Store) obj);
                 break;
             case "User":
-                UserBLL.AddNewUser((User) obj);
+                UserBLL ubll = new UserBLL();
+                ubll.insert((User) obj);
                 break;
             default:
                 System.out.println("Wrong type");
@@ -77,13 +101,16 @@ public class DBAccessFacade {
     public static void DeleteItem(String type, int id) {
         switch (type) {
             case "Product":
-                ProductBLL.DeleteProduct(id);
+                ProductBLL pbll = new ProductBLL();
+                pbll.delete(id);
                 break;
             case "Store":
-                StoreBLL.DeleteStore(id);
+                StoreBLL sbll = new StoreBLL();
+                sbll.delete(id);
                 break;
             case "User":
-                UserBLL.DeleteUser(id);
+                UserBLL ubll = new UserBLL();
+                ubll.delete(id);
                 break;
             default:
                 System.out.println("Wrong type");
