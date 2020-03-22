@@ -92,4 +92,9 @@ public class StoreBLL implements DBAccessOperations {
     public boolean findByID(int id) {
         return false;
     }
+
+    @Override
+    public boolean findByName(String name) {
+        return false;
+    }
 }

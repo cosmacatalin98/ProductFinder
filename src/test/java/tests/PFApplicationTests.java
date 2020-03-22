@@ -29,19 +29,36 @@ public class PFApplicationTests {
     }
 
     @Test
-    public void testFindBy() {
+    public void testFindAllById() {
         int id = 10;
-        dbAccessFacade.findBy(id);
+        dbAccessFacade.findAllById(id);
         verify(dbAccessOperations).findByID(id);
     }
 
     @Test
-    public void testFindByAssert() {
+    public void testFindALLByIdAssert() {
         int id = 10;
         boolean expectedResult = false;
         when(dbAccessOperations.findByID(id)).thenReturn(expectedResult);
-        boolean currentResult = dbAccessFacade.findBy(id);
+        boolean currentResult = dbAccessFacade.findAllById(id);
         assertEquals(expectedResult, currentResult);
     }
+
+    @Test
+    public void testFindAllByName() {
+        String name = "Mango";
+        dbAccessFacade.findAllByName(name);
+        verify(dbAccessOperations).findByName(name);
+    }
+
+    @Test
+    public void testFindALLByNameAssert() {
+        String name = "Mango";
+        boolean expectedResult = true;
+        when(dbAccessOperations.findByName(name)).thenReturn(expectedResult);
+        boolean currentResult = dbAccessFacade.findAllByName(name);
+        assertEquals(expectedResult, currentResult);
+    }
+
 
 }

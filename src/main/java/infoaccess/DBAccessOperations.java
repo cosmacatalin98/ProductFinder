@@ -8,5 +8,6 @@ public interface DBAccessOperations {
     void insert(Object obj);
     void delete(int id);
     boolean findByID(int id);
+    boolean findByName(String name);
 
 }

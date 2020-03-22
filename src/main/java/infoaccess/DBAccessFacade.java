@@ -27,8 +27,19 @@ public class DBAccessFacade {
      * @param id
      * @return
      */
-    public boolean findBy(int id) {
+    public boolean findAllById(int id) {
         return dbao.findByID(id);
+    }
+
+    /**
+     * Aceasta metoda nu a fost implementata  inca dar se stie cum ar
+     * trebui sa se comporte.
+     *
+     * @param name
+     * @return
+     */
+    public boolean findAllByName(String name) {
+        return dbao.findByName(name);
     }
 
     /**

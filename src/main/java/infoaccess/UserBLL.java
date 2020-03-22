@@ -96,4 +96,9 @@ public class UserBLL implements DBAccessOperations {
         return false;
     }
 
+    @Override
+    public boolean findByName(String name) {
+        return false;
+    }
+
 }
