@@ -14,6 +14,14 @@ import static org.mockito.Mockito.when;
 
 import static org.junit.Assert.assertEquals;
 
+/**
+ * Aceasta clasa este folosita pentru a testa
+ * functionalitatea unor metode care nu sunt
+ * implementate .Testarea se face folosind
+ * librarie mockito care simuleaza comportamentul
+ * acestora fara a fi nevoie de o implementare
+ * propriu-zisa.
+ */
 public class PFApplicationTests {
 
     @Mock
@@ -45,6 +53,16 @@ public class PFApplicationTests {
     }
 
     @Test
+    public void testFindALLByIdAssertTrue() {
+        int id = 10;
+        boolean expectedResult = true;
+        when(dbAccessOperations.findByID(id)).thenReturn(expectedResult);
+        boolean currentResult = dbAccessFacade.findAllById(id);
+        assertEquals(expectedResult, currentResult);
+    }
+
+
+    @Test
     public void testFindAllByName() {
         String name = "Mango";
         dbAccessFacade.findAllByName(name);
@@ -55,6 +73,15 @@ public class PFApplicationTests {
     public void testFindALLByNameAssert() {
         String name = "Mango";
         boolean expectedResult = true;
+        when(dbAccessOperations.findByName(name)).thenReturn(expectedResult);
+        boolean currentResult = dbAccessFacade.findAllByName(name);
+        assertEquals(expectedResult, currentResult);
+    }
+
+    @Test
+    public void testFindALLByNameAssertFalse() {
+        String name = "Capsuni";
+        boolean expectedResult = false;
         when(dbAccessOperations.findByName(name)).thenReturn(expectedResult);
         boolean currentResult = dbAccessFacade.findAllByName(name);
         assertEquals(expectedResult, currentResult);
