@@ -2,6 +2,7 @@ package infoaccess;
 
 import connection.ConnectionFactory;
 import domain.Store;
+import domain.User;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -90,7 +91,22 @@ public class StoreBLL implements DBAccessOperations {
 
     @Override
     public void update(Object obj) {
+        try {
+            Connection dbConnection = ConnectionFactory.getConnection();
+            Store s = (Store) obj;
+            String query = "update stores set Name = ?,Address = ?  where StoreId = ?";
+            PreparedStatement st = dbConnection.prepareStatement(query);
+            st.setString(1, s.getName());
+            st.setString(2, s.getAddress());
+            st.setInt(3, s.getStoreId());
 
+            st.execute();
+
+            ConnectionFactory.close(dbConnection);
+        } catch (Exception er) {
+            System.err.println("Updating the store failed!");
+            System.err.println(er.getMessage());
+        }
     }
 
     @Override

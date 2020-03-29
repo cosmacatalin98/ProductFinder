@@ -116,6 +116,20 @@ public class Controller {
     }
 
     /**
+     * Aceasta metoda ne actualizeaza campurile unui magazin folosind adresa :
+     * http://localhost:8080/updateStore
+     *
+     * @param st Obiectul de tip magazin care contie campurile modificate.
+     * @return String Returneaza obiectul ca si String pe post de mesaj
+     * de confirmare.
+     */
+    @RequestMapping(value = "/updateStore", method = RequestMethod.PUT)
+    public String UpdateStore(@RequestBody Store st) {
+        DBAccessFacade.UpdateItem(st);
+        return st.toString();
+    }
+
+    /**
      * Aceasta metoda sterge un magazin pe baza unui
      * id primit ca si parametru.
      *
