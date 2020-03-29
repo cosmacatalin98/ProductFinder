@@ -158,6 +158,20 @@ public class Controller {
     }
 
     /**
+     * Aceasta metoda ne actualizeaza campurile unui utilizator folosind adresa :
+     * http://localhost:8080/updateUser
+     *
+     * @param usr Obiectul de tip utilizator care contie campurile modificate.
+     * @return String Returneaza obiectul ca si String pe post de mesaj
+     * de confirmare.
+     */
+    @RequestMapping(value = "/updateUser", method = RequestMethod.PUT)
+    public String UpdateUser(@RequestBody User usr) {
+        DBAccessFacade.UpdateItem(usr);
+        return usr.toString();
+    }
+
+    /**
      * Aceasta metoda sterge un utilizator pe baza unui
      * id primit ca si parametru.
      *

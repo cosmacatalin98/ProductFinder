@@ -1,6 +1,7 @@
 package infoaccess;
 
 import connection.ConnectionFactory;
+import domain.Product;
 import domain.User;
 
 import java.sql.Connection;
@@ -93,7 +94,22 @@ public class UserBLL implements DBAccessOperations {
 
     @Override
     public void update(Object obj) {
+        try {
+            Connection dbConnection = ConnectionFactory.getConnection();
+            User u = (User) obj;
+            String query = "update users set Username = ?,Password = ?  where UserId = ?";
+            PreparedStatement st = dbConnection.prepareStatement(query);
+            st.setString(1, u.getUsername());
+            st.setString(2, u.getPassword());
+            st.setInt(3, u.getUserId());
 
+            st.execute();
+
+            ConnectionFactory.close(dbConnection);
+        } catch (Exception er) {
+            System.err.println("Updating the product failed!");
+            System.err.println(er.getMessage());
+        }
     }
 
     @Override
