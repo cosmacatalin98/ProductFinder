@@ -60,6 +60,20 @@ public class Controller {
     }
 
     /**
+     * Aceasta metoda ne actualizeaza campurile unui produs folosind adresa :
+     * http://localhost:8080/updateProduct
+     *
+     * @param prod Obiectul de tip produs care contie campurile modificate.
+     * @return String Returneaza obiectul ca si String pe post de mesaj
+     * de confirmare.
+     */
+    @RequestMapping(value = "/updateProduct", method = RequestMethod.PUT)
+    public String UpdateProduct(@RequestBody Product prod) {
+        DBAccessFacade.UpdateItem(prod);
+        return prod.toString();
+    }
+
+    /**
      * Aceasta metoda sterge un produs pe baza unui
      * id primit ca si parametru.
      *

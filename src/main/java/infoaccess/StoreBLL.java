@@ -89,6 +89,11 @@ public class StoreBLL implements DBAccessOperations {
     }
 
     @Override
+    public void update(Object obj) {
+
+    }
+
+    @Override
     public boolean findByID(int id) {
         return false;
     }

@@ -97,6 +97,28 @@ public class ProductBLL implements DBAccessOperations {
     }
 
     @Override
+    public void update(Object obj) {
+        try {
+            Connection dbConnection = ConnectionFactory.getConnection();
+            Product pr = (Product) obj;
+            String query = "update products set StoreId = ?,ProductName = ?,Quantity = ?,Um = ? ,Price = ?  where ProductId = ?";
+            PreparedStatement st = dbConnection.prepareStatement(query);
+            st.setInt(1, pr.getStoreId());
+            st.setString(2, pr.getProductName());
+            st.setInt(3, pr.getQuantity());
+            st.setString(4, pr.getUm());
+            st.setInt(5, pr.getPrice());
+            st.setInt(6, pr.getProductId());
+            st.execute();
+
+            ConnectionFactory.close(dbConnection);
+        } catch (Exception er) {
+            System.err.println("Updating the product failed!");
+            System.err.println(er.getMessage());
+        }
+    }
+
+    @Override
     public boolean findByID(int id) {
         return false;
     }

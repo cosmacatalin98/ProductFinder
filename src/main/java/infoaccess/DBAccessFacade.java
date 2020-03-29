@@ -129,4 +129,26 @@ public class DBAccessFacade {
         }
     }
 
+    public static void UpdateItem(Object obj) {
+        Class cls = obj.getClass();
+        String type = cls.getSimpleName();
+        switch (type) {
+            case "Product":
+                ProductBLL pbll = new ProductBLL();
+                pbll.update((Product) obj);
+                break;
+            case "Store":
+                StoreBLL sbll = new StoreBLL();
+                sbll.update((Store) obj);
+                break;
+            case "User":
+                UserBLL ubll = new UserBLL();
+                ubll.update((User) obj);
+                break;
+            default:
+                System.out.println("Wrong type");
+                break;
+        }
+    }
+
 }
