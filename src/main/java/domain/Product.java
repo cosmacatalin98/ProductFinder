@@ -63,7 +63,6 @@ public class Product {
     }
 
     public void setQuantity(int quantity) {
-        support.firePropertyChange("Quantity", this.Quantity, quantity);
         Quantity = quantity;
     }
 
@@ -81,6 +80,10 @@ public class Product {
 
     public void setPrice(int price) {
         Price = price;
+    }
+
+    public void changed(){
+        support.firePropertyChange("favourite", this, this);
     }
 
     @Override

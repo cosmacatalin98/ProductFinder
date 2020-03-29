@@ -1,5 +1,7 @@
 package tests;
 
+import domain.Product;
+import domain.User;
 import infoaccess.DBAccessFacade;
 import infoaccess.DBAccessOperations;
 import org.junit.Before;
@@ -85,6 +87,18 @@ public class PFApplicationTests {
         when(dbAccessOperations.findByName(name)).thenReturn(expectedResult);
         boolean currentResult = dbAccessFacade.findAllByName(name);
         assertEquals(expectedResult, currentResult);
+    }
+
+    @Test
+    public void testUserObserverAssert() {
+        Product observable= new Product(1,1,"testname",200,"t",1);
+        User observer = new User(1,"testname","testpass");
+        observer.setFavourite(observable);
+
+        observable.addPropertyChangeListener(observer);
+        observable.setQuantity(100);
+
+        assertEquals(observer.getFavourite(),observable);
     }
 
 

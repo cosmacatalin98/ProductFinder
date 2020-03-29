@@ -18,6 +18,10 @@ public class User implements PropertyChangeListener {
         favourite = new Product();
     }
 
+    public User() {
+
+    }
+
     public int getUserId() {
         return UserId;
     }
@@ -61,6 +65,6 @@ public class User implements PropertyChangeListener {
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        this.favourite.setQuantity((Integer) evt.getNewValue());
+        this.setFavourite((Product) evt.getNewValue());
     }
 }
