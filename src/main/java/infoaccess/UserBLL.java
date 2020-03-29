@@ -1,7 +1,6 @@
 package infoaccess;
 
 import connection.ConnectionFactory;
-import domain.Product;
 import domain.User;
 
 import java.sql.Connection;

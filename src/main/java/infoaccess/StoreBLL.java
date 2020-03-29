@@ -2,7 +2,6 @@ package infoaccess;
 
 import connection.ConnectionFactory;
 import domain.Store;
-import domain.User;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

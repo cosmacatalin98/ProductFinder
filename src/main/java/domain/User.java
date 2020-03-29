@@ -1,14 +1,21 @@
 package domain;
 
-public class User {
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.util.ArrayList;
+import java.util.List;
+
+public class User implements PropertyChangeListener {
     private int UserId;
     private String Username;
     private String Password;
+    private Product favourite;
 
     public User(int userid, String username, String password) {
         UserId = userid;
         Username = username;
         Password = password;
+        favourite = new Product();
     }
 
     public int getUserId() {
@@ -35,6 +42,14 @@ public class User {
         Password = password;
     }
 
+    public Product getFavourite() {
+        return favourite;
+    }
+
+    public void setFavourite(Product favourite) {
+        this.favourite = favourite;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -42,5 +57,10 @@ public class User {
                 ", Username='" + Username + '\'' +
                 ", Password='" + Password + '\'' +
                 '}';
+    }
+
+    @Override
+    public void propertyChange(PropertyChangeEvent evt) {
+        this.favourite.setQuantity((Integer) evt.getNewValue());
     }
 }

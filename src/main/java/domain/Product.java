@@ -1,5 +1,8 @@
 package domain;
 
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
+
 public class Product {
     private int ProductId;
     private int StoreId;
@@ -7,6 +10,7 @@ public class Product {
     private int Quantity;
     private String Um;
     private int Price;
+    private PropertyChangeSupport support;
 
     public Product(int productid, int storeid, String productname, int quantity, String um, int price) {
         ProductId = productid;
@@ -15,6 +19,19 @@ public class Product {
         Quantity = quantity;
         Um = um;
         Price = price;
+        support = new PropertyChangeSupport(this);
+    }
+
+    public Product() {
+
+    }
+
+    public void addPropertyChangeListener(PropertyChangeListener pcl) {
+        support.addPropertyChangeListener(pcl);
+    }
+
+    public void removePropertyChangeListener(PropertyChangeListener pcl) {
+        support.removePropertyChangeListener(pcl);
     }
 
     public int getProductId() {
@@ -46,6 +63,7 @@ public class Product {
     }
 
     public void setQuantity(int quantity) {
+        support.firePropertyChange("Quantity", this.Quantity, quantity);
         Quantity = quantity;
     }
 
