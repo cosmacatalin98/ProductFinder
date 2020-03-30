@@ -17,7 +17,7 @@ De asemenea utilizatorul are posibilitatea de realiza anumite comparații și ce
 În ceea ce privește implementarea, proiectul va fi împărțit în două părți :
 ### Partea de back end
 Această parte se va ocupa în special cu prelucrarea datelor și cu operațiile care se pot aplica pe acestea.
-Datele referitoare la produse, magazine și utilizatori vor fi stocate intr-o bază de date cu mai multe tabele iar obținerea 
+Datele referitoare la produse, magazine și utilizatori vor fi stocate intr-o bază de date cu mai multe tabele iar obținerea
 și prelucrarea datelor se va realizeaza folosind limbajul Java astfel fiecare tip de date va avea asociat câte două clase, una pentru
 definirea proprietățiilor tipului de date și una pentru extragerea acestuia din baza de date.De asemnea vor exista clase adiționale
 care implementează operații de prelucrare a datelor.
@@ -26,7 +26,14 @@ Această parte va avea rolul de a prezenta utilizatorului o interfață grafică
 faciliteze utilizarea aplicației de către acesta.Pagina de web va fi fi implementată cu ajutorul limbajului HTML.
 
 ## Descrierea soluției
-Pentru partea de back end se va utiliza structura de clase din următoarea diagramă :
+Responsabilitatea claselor din aplicație este împărțită pe pachete după cum urmează:
+![alt text](https://github.com/cosmacatalin98/ProductFinder/blob/master/UMLPackageDiagarm.jpeg)
+Pachetul domain conține clasele corespunzătoare tipurilor de bază (Product, Store, User).\
+Pachetul connection conține clasele care se ocupă de realizarea conexiunii la baza de date.\
+Pachetul infoaccess conține clasele responsabile de preluarea și prelucrarea datelor din baza de date.\
+Pachetul application conține clasele care se ocupă de rularea aplicației propriu-zise.
+
+Pentru partea de back end se utilizează structura de clase din următoarea diagramă :
 ![alt text](https://github.com/cosmacatalin98/ProductFinder/blob/master/UMLClassDiagram.jpeg)
 
 Fiecare tabelă din baza de date are asociată o clasă care are ca și atribute câmpurile tabelei, astfel clasele Product, Store și User corespund tabelelor Products, Stores și Users, aceste clase se ocupă doar de definirea tipului și operații simple (get,set) pe acesta.
