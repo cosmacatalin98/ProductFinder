@@ -18,23 +18,11 @@ public class Controller {
     public Controller() {
     }
 
-    /**
-     * Aceasta metoda este folosita pentru a testa
-     * conexiunea la Postman folosind adresa :
-     * localhost:8080/test
-     *
-     * @return String Returneaza un mesaj de test
-     */
-    @GetMapping("/test")
-    public String GetHelloWorld() {
-        return "Hello from Product Finder Application !";
-    }
-
     //Endpoint-uri pentru obiectele de tip Product
 
     /**
      * Aceasta metoda ne returneaza in Postman  o lista cu toate obiectele
-     * din baza de date din tabela Produse folosind adresa :
+     * din baza de date din tabela Products folosind adresa :
      * http://localhost:8080/allProducts
      *
      * @return List<Object> Returneaza o lista cu toate produsele.

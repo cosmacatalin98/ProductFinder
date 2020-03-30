@@ -1,5 +1,10 @@
 package domain;
 
+/**
+ * Aceasta clasa reprezinta tipul de baza pentru obiectele
+ * din tabela stores din baza de date.
+ **/
+
 public class Store {
     private int StoreId;
     private String Name;

@@ -31,7 +31,7 @@ public class ConnectionFactory {
 
     /**
      * Aceasta metoda creaza o conexiunea la baza de date
-     * iar in cazu in care aceasta nu poate fi creata
+     * iar in cazul in care aceasta nu poate fi creata
      * trimite un mesaj de eroare.
      *
      * @return Connection Conexiunea creata.

@@ -3,6 +3,14 @@ package domain;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
+/**
+ * Aceasta clasa reprezinta tipul de baza pentru obiectele
+ * din tabela products din baza de date.
+ * In cadrul DP-ului Observer are rolul de observable
+ * deoarece orice schimbare asupa campurilor unui
+ * obiect care apartine clasei se propaga
+ * la obiectele de tip User.
+ */
 public class Product {
     private int ProductId;
     private int StoreId;
@@ -82,7 +90,12 @@ public class Product {
         Price = price;
     }
 
-    public void changed(){
+    /**
+     * Aceasta metoda anunta toti utilizatorii de schimbarea
+     * realizata la produsul pe care acestia il au adaugat
+     * la favorit.
+     */
+    public void changed() {
         support.firePropertyChange("favourite", this, this);
     }
 

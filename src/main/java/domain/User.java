@@ -2,9 +2,15 @@ package domain;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-import java.util.ArrayList;
-import java.util.List;
 
+/**
+ * Aceasta clasa reprezinta tipul de baza pentru  obiectele din
+ * tabela Users din baza de date.
+ * De asemenea implementeaza si DP-ul Observer cu rolul de observer prin campul
+ * favourite care reprezinta produsul favorit al utilizatorului
+ * a carui proprietati sunt modificate de catre clasa
+ * Product care are rolul de observable.
+ */
 public class User implements PropertyChangeListener {
     private int UserId;
     private String Username;

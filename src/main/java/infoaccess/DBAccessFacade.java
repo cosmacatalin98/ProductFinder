@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Aceasta clasa are rolul de a simplifica utilizarea operatiilor
  * de manipulare a datelor din baza de date de catre un anumit
- * utilizator.
+ * utilizator prin implementarea DP-ului Facade.
  */
 public class DBAccessFacade {
 
@@ -129,6 +129,12 @@ public class DBAccessFacade {
         }
     }
 
+    /**
+     * Aceasat metoda actualizeaza un obiect din baza
+     * de date in functie de tipul acestuia.
+     *
+     * @param obj Obiectul modificat.
+     */
     public static void UpdateItem(Object obj) {
         Class cls = obj.getClass();
         String type = cls.getSimpleName();
