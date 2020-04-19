@@ -52,19 +52,20 @@ public class DBAccessFacade {
     public static List<Object> GetAll(String type) {
 
         List<Object> objects = new ArrayList<Object>();
+        DBAOContext dbaoc;
 
         switch (type) {
             case "Product":
-                ProductBLL pbll = new ProductBLL();
-                objects = pbll.viewALL();
+                dbaoc = new DBAOContext(new ProductBLL());
+                objects = dbaoc.executeGetAll();
                 break;
             case "Store":
-                StoreBLL sbll = new StoreBLL();
-                objects = sbll.viewALL();
+                dbaoc = new DBAOContext(new StoreBLL());
+                objects = dbaoc.executeGetAll();
                 break;
             case "User":
-                UserBLL ubll = new UserBLL();
-                objects = ubll.viewALL();
+                dbaoc = new DBAOContext(new UserBLL());
+                objects = dbaoc.executeGetAll();
                 break;
             default:
                 System.out.println("Wrong type");
@@ -82,18 +83,19 @@ public class DBAccessFacade {
     public static void InsertItem(Object obj) {
         Class cls = obj.getClass();
         String type = cls.getSimpleName();
+        DBAOContext dbaoc;
         switch (type) {
             case "Product":
-                ProductBLL pbll = new ProductBLL();
-                pbll.insert((Product) obj);
+                dbaoc = new DBAOContext(new ProductBLL());
+                dbaoc.executeInsertItem((Product) obj);
                 break;
             case "Store":
-                StoreBLL sbll = new StoreBLL();
-                sbll.insert((Store) obj);
+                dbaoc = new DBAOContext(new StoreBLL());
+                dbaoc.executeInsertItem((Store) obj);
                 break;
             case "User":
-                UserBLL ubll = new UserBLL();
-                ubll.insert((User) obj);
+                dbaoc = new DBAOContext(new UserBLL());
+                dbaoc.executeInsertItem((User) obj);
                 break;
             default:
                 System.out.println("Wrong type");
@@ -110,18 +112,19 @@ public class DBAccessFacade {
      * @param id   ID-ul obiectului care trebuie sters.
      */
     public static void DeleteItem(String type, int id) {
+        DBAOContext dbaoc;
         switch (type) {
             case "Product":
-                ProductBLL pbll = new ProductBLL();
-                pbll.delete(id);
+                dbaoc = new DBAOContext(new ProductBLL());
+                dbaoc.executeDeleteItem(id);
                 break;
             case "Store":
-                StoreBLL sbll = new StoreBLL();
-                sbll.delete(id);
+                dbaoc = new DBAOContext(new StoreBLL());
+                dbaoc.executeDeleteItem(id);
                 break;
             case "User":
-                UserBLL ubll = new UserBLL();
-                ubll.delete(id);
+                dbaoc = new DBAOContext(new UserBLL());
+                dbaoc.executeDeleteItem(id);
                 break;
             default:
                 System.out.println("Wrong type");
@@ -138,18 +141,19 @@ public class DBAccessFacade {
     public static void UpdateItem(Object obj) {
         Class cls = obj.getClass();
         String type = cls.getSimpleName();
+        DBAOContext dbaoc;
         switch (type) {
             case "Product":
-                ProductBLL pbll = new ProductBLL();
-                pbll.update((Product) obj);
+                dbaoc = new DBAOContext(new ProductBLL());
+                dbaoc.executeUpdateItem((Product) obj);
                 break;
             case "Store":
-                StoreBLL sbll = new StoreBLL();
-                sbll.update((Store) obj);
+                dbaoc = new DBAOContext(new StoreBLL());
+                dbaoc.executeUpdateItem((Store) obj);
                 break;
             case "User":
-                UserBLL ubll = new UserBLL();
-                ubll.update((User) obj);
+                dbaoc = new DBAOContext(new UserBLL());
+                dbaoc.executeUpdateItem((User) obj);
                 break;
             default:
                 System.out.println("Wrong type");
