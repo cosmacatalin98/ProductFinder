@@ -144,10 +144,17 @@ public class DBAccessFacade {
         return pbll.findByName(name);
     }
 
-    /*
-    public static List<Product> sortByPrice(String name){
+    /**
+     * Aceasta metoda ne returneaza produsele din tabela products
+     * care au numele name.
+     * Lista va fi sortata crescator in fuctie de pretul produselor.
+     *
+     * @param name Parametru String dupa care se face cautarea.
+     * @return List<Product> Returneaza o lista cu produsele gasite si sortate.
+     */
+    public static List<Product> sortByPrice(String name) {
         ProductBLL pbll = new ProductBLL();
-        return  pbll.sortByPrice(name);
+        return pbll.sortByPrice(name);
     }
-    */
+
 }

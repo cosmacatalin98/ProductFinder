@@ -89,12 +89,20 @@ public class Controller {
         return DBAccessFacade.findByName(name);
     }
 
-    /*
+    /**
+     * Aceasta metoda returneaza toate produsele din tabela products
+     * care au numele name.
+     * Lista va fi sortata crescator in fuctie de pretul produselor.
+     * Pentru returnarea rezultatului se foloseste adresa :
+     * http://localhost:8080/sortByPrice/name
+     *
+     * @param name Parametru String dupa care se face cautarea.
+     * @return List<Product> Returneaza o lista cu produsele gasite.
+     */
     @RequestMapping(value = "/sortByPrice/{name}", method = RequestMethod.GET)
     public List<Product> sortByPrice(@PathVariable String name) {
         return DBAccessFacade.sortByPrice(name);
     }
-     */
 
     //Endpoint-uri pentru obiectele de tip Store
 
