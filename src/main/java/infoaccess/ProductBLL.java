@@ -160,4 +160,19 @@ public class ProductBLL implements DBAccessOperations {
         return sortedProducts;
     }
 
+    /**
+     * Aceasta metoda ne returneaza o lista cu produsele care
+     * au numele name.
+     * Lista va fi sortata crescator in fuctie de stocul produselor.
+     *
+     * @param name String-ul care reprezinta numele.
+     * @return List<Product> Returneaza ista care contine produsele sortate.
+     */
+    public List<Product> sortByQuantity(String name) {
+        ProductBLL pbll = new ProductBLL();
+        List<Product> sortedProducts = pbll.findByName(name);
+        sortedProducts.sort(Comparator.comparingInt(Product::getQuantity));
+        return sortedProducts;
+    }
+
 }

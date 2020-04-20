@@ -96,12 +96,27 @@ public class Controller {
      * Pentru returnarea rezultatului se foloseste adresa :
      * http://localhost:8080/sortByPrice/name
      *
-     * @param name Parametru String dupa care se face cautarea.
+     * @param name Parametrul String dupa care se face cautarea.
      * @return List<Product> Returneaza o lista cu produsele gasite.
      */
     @RequestMapping(value = "/sortByPrice/{name}", method = RequestMethod.GET)
     public List<Product> sortByPrice(@PathVariable String name) {
-        return DBAccessFacade.sortByPrice(name);
+        return DBAccessFacade.sortProducts(name, "Price");
+    }
+
+    /**
+     * Aceasta metoda returneaza toate produsele din tabela products
+     * care au numele name.
+     * Lista va fi sortata crescator in fuctie de stocul produselor.
+     * Pentru returnarea rezultatului se foloseste adresa :
+     * http://localhost:8080/sortByQuantity/name
+     *
+     * @param name Parametrul String dupa care se face cautarea.
+     * @return List<Product> Returneaza o lista cu produsele gasite.
+     */
+    @RequestMapping(value = "/sortByQuantity/{name}", method = RequestMethod.GET)
+    public List<Product> sortByQuantity(@PathVariable String name) {
+        return DBAccessFacade.sortProducts(name, "Quantity");
     }
 
     //Endpoint-uri pentru obiectele de tip Store

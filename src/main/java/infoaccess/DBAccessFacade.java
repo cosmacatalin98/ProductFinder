@@ -145,16 +145,22 @@ public class DBAccessFacade {
     }
 
     /**
-     * Aceasta metoda ne returneaza produsele din tabela products
-     * care au numele name.
-     * Lista va fi sortata crescator in fuctie de pretul produselor.
+     * Aceasta metoda ne returneaza o lista  de obiecte de tip
+     * Product sortate dupa un anumit criteriu.
+     * Lista va contine toate prododusele cu numele name.
      *
-     * @param name Parametru String dupa care se face cautarea.
-     * @return List<Product> Returneaza o lista cu produsele gasite si sortate.
+     * @param name      Numele produsului cautat.
+     * @param criterion Criteriul dupa care se face sortarea.
+     * @return
      */
-    public static List<Product> sortByPrice(String name) {
+    public static List<Product> sortProducts(String name, String criterion) {
         ProductBLL pbll = new ProductBLL();
-        return pbll.sortByPrice(name);
+        if (criterion.equals("Price")) {
+            return pbll.sortByPrice(name);
+        } else {
+            return pbll.sortByQuantity(name);
+        }
     }
+
 
 }
