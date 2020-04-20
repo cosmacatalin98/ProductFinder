@@ -76,6 +76,26 @@ public class Controller {
         return "Success";
     }
 
+    /**
+     * Aceasta metoda returneaza toate produsele din tabela products
+     * care au numele name folosind adresa :
+     * http://localhost:8080/findByName/name
+     *
+     * @param name Parametru String dupa care se face cautarea.
+     * @return List<Object> Returneaza o lista cu produsele gasite.
+     */
+    @RequestMapping(value = "/findByName/{name}", method = RequestMethod.GET)
+    public List<Product> findByName(@PathVariable String name) {
+        return DBAccessFacade.findByName(name);
+    }
+
+    /*
+    @RequestMapping(value = "/sortByPrice/{name}", method = RequestMethod.GET)
+    public List<Product> sortByPrice(@PathVariable String name) {
+        return DBAccessFacade.sortByPrice(name);
+    }
+     */
+
     //Endpoint-uri pentru obiectele de tip Store
 
     /**

@@ -132,4 +132,22 @@ public class DBAccessFacade {
         }
     }
 
+    /**
+     * Aceasta metoda returneaza toate produsele din tabela products
+     * care au numele name.
+     *
+     * @param name Parametru String dupa care se face cautarea.
+     * @return List<Product> Returneaza o lista cu produsele gasite.
+     */
+    public static List<Product> findByName(String name) {
+        ProductBLL pbll = new ProductBLL();
+        return pbll.findByName(name);
+    }
+
+    /*
+    public static List<Product> sortByPrice(String name){
+        ProductBLL pbll = new ProductBLL();
+        return  pbll.sortByPrice(name);
+    }
+    */
 }

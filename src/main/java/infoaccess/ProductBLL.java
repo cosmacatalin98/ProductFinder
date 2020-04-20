@@ -8,7 +8,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.ListIterator;
 
 /**
  * Aceasta clasa se ocupa cu operatiile de
@@ -118,5 +120,39 @@ public class ProductBLL implements DBAccessOperations {
             System.err.println(er.getMessage());
         }
     }
+
+    /**
+     * Aceasta metoda cauta toate produsele din tabela products
+     * dupa un nume primit ca si parametru.
+     *
+     * @param name String-ul care reprezinta numele.
+     * @return List<Product> Returneaza o lista cu produsele gasite.
+     */
+    public List<Product> findByName(String name) {
+        ProductBLL pbll = new ProductBLL();
+        List<Object> products = new ArrayList<Object>();
+        products = pbll.viewALL();
+        List<Product> foundProducts = new ArrayList<Product>();
+
+        ListIterator<Object> lstItr = products.listIterator();
+
+        while (lstItr.hasNext()) {
+            Product p = (Product) lstItr.next();
+            if (p.getProductName().equals(name)) {
+                foundProducts.add(p);
+            }
+        }
+        return foundProducts;
+    }
+
+    /*
+    public List<Product> sortByPrice(String name) {
+        ProductBLL pbll = new ProductBLL();
+        List<Product> sortedProducts = new ArrayList<Product>();
+        sortedProducts = (List<Product>)(Object)pbll.findByName(name);
+        sortedProducts.sort(Comparator.comparingInt(Product::getPrice));
+        return sortedProducts;
+    }
+    */
 
 }

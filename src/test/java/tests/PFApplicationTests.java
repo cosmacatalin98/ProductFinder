@@ -18,12 +18,10 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
 
 /**
- * Aceasta clasa este folosita pentru a testa
- * functionalitatea unor metode care nu sunt
- * implementate .Testarea se face folosind
- * librarie mockito care simuleaza comportamentul
- * acestora fara a fi nevoie de o implementare
- * propriu-zisa.
+ * Aceasta clasa se ocupa cu testarea operatiilor de
+ * prelucrare a datelor.
+ * Clasa utilizeaza libraria Mockito pentru a face
+ * posibila testarea fara a avea nevoie de dependinte externe.
  */
 public class PFApplicationTests {
 
