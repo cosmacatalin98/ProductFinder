@@ -39,22 +39,4 @@ public interface DBAccessOperations {
      */
     void update(Object obj);
 
-    /**
-     * Aceasta metoda realizeaza o cautare dupa
-     * ID a unui obiect din baza de date.
-     *
-     * @param id
-     * @return
-     */
-    boolean findByID(int id);
-
-    /**
-     * Aceasta metoda realizeaza o cautare dupa
-     * nume a unui obiect din baza de date.
-     *
-     * @param name
-     * @return
-     */
-    boolean findByName(String name);
-
 }

@@ -12,7 +12,8 @@ import java.util.List;
 
 /**
  * Aceasta clasa se ocupa cu operatiile de
- * manipulare a datelor din tabela products.
+ * manipulare a datelor din tabela products si
+ * implementeaza interfata DBAccessOperations.
  */
 public class ProductBLL implements DBAccessOperations {
 
@@ -118,13 +119,4 @@ public class ProductBLL implements DBAccessOperations {
         }
     }
 
-    @Override
-    public boolean findByID(int id) {
-        return false;
-    }
-
-    @Override
-    public boolean findByName(String name) {
-        return false;
-    }
 }

@@ -4,8 +4,8 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
 /**
- * Aceasta clasa reprezinta tipul de baza pentru obiectele
- * din tabela products din baza de date.
+ * Aceasta clasa se ocupa cu crearea tipului de baza
+ * pentru produsele din tabela products.
  * In cadrul DP-ului Observer are rolul de observable
  * deoarece orice schimbare asupa campurilor unui
  * obiect care apartine clasei se propaga

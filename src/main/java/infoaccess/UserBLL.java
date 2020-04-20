@@ -12,7 +12,8 @@ import java.util.List;
 
 /**
  * Aceasta clasa se ocupa cu operatiile de
- * manipulare a datelor din tabela users.
+ * manipulare a datelor din tabela users si
+ * implementeaza interfata DBAccessOperations.
  */
 public class UserBLL implements DBAccessOperations {
     public UserBLL() {
@@ -109,16 +110,6 @@ public class UserBLL implements DBAccessOperations {
             System.err.println("Updating the product failed!");
             System.err.println(er.getMessage());
         }
-    }
-
-    @Override
-    public boolean findByID(int id) {
-        return false;
-    }
-
-    @Override
-    public boolean findByName(String name) {
-        return false;
     }
 
 }

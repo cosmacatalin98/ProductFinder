@@ -12,7 +12,8 @@ import java.util.List;
 
 /**
  * Aceasta clasa se ocupa cu operatiile de
- * manipulare a datelor din tabela stores.
+ * manipulare a datelor din tabela stores si
+ * implementeaza interfata DBAccessOperations.
  */
 public class StoreBLL implements DBAccessOperations {
 
@@ -108,13 +109,4 @@ public class StoreBLL implements DBAccessOperations {
         }
     }
 
-    @Override
-    public boolean findByID(int id) {
-        return false;
-    }
-
-    @Override
-    public boolean findByName(String name) {
-        return false;
-    }
 }

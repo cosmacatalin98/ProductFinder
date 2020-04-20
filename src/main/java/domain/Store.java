@@ -1,8 +1,8 @@
 package domain;
 
 /**
- * Aceasta clasa reprezinta tipul de baza pentru obiectele
- * din tabela stores din baza de date.
+ * Aceasta clasa se ocupa cu crearea tipului de baza
+ * pentru magazinele din tabela stores.
  **/
 
 public class Store {

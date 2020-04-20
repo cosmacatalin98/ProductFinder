@@ -4,8 +4,8 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
 /**
- * Aceasta clasa reprezinta tipul de baza pentru  obiectele din
- * tabela Users din baza de date.
+ * Aceasta clasa se ocupa cu crearea tipului de baza
+ * pentru utilizatorii din tabela users.
  * De asemenea implementeaza si DP-ul Observer cu rolul de observer prin campul
  * favourite care reprezinta produsul favorit al utilizatorului
  * a carui proprietati sunt modificate de catre clasa

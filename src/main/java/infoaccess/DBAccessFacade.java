@@ -8,12 +8,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Aceasta clasa are rolul de a simplifica utilizarea operatiilor
- * de manipulare a datelor din baza de date de catre un anumit
- * utilizator prin implementarea DP-ului Facade.
+ * Aceasta clasa are rolul de a simplifica utilizarea operatiilor de manipulare
+ * a datelor din baza de date prin implementarea DP-ului Facade.
  */
 public class DBAccessFacade {
-
 
     /**
      * Aceasta metoda returneaza toate elementele dintr-o tabela
@@ -78,8 +76,8 @@ public class DBAccessFacade {
 
     /**
      * Aceasta metoda sterge un obiect pe baza
-     * unui id primit ca parametru.Stergerea se
-     * realizeaza din tabela de tipul type.
+     * unui id primit ca si parametru.
+     * Stergerea se realizeaza din tabela de tipul type.
      *
      * @param type Tipul tabelei din care se face stergerea.
      * @param id   ID-ul obiectului care trebuie sters.
