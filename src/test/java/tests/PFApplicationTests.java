@@ -2,7 +2,7 @@ package tests;
 
 import domain.Product;
 import domain.User;
-import infoaccess.DBAccessFacade;
+import infoaccess.DBAOContext;
 import infoaccess.DBAccessOperations;
 import org.junit.Before;
 import org.junit.Rule;
@@ -11,10 +11,11 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
 
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.*;
 
 /**
  * Aceasta clasa este folosita pentru a testa
@@ -31,74 +32,64 @@ public class PFApplicationTests {
 
     @Rule
     public MockitoRule mockitoRule = MockitoJUnit.rule();
-    private DBAccessFacade dbAccessFacade;
+    private DBAOContext dbaoc;
 
     @Before
     public void init() {
-        dbAccessFacade = new DBAccessFacade(dbAccessOperations);
+        dbaoc = new DBAOContext(dbAccessOperations);
     }
 
     @Test
-    public void testFindAllById() {
-        int id = 10;
-        dbAccessFacade.findAllById(id);
-        verify(dbAccessOperations).findByID(id);
+    public void testExecuteGetAll() {
+        dbaoc.executeGetAll();
+        verify(dbAccessOperations).viewALL();
     }
 
     @Test
-    public void testFindALLByIdAssert() {
-        int id = 10;
-        boolean expectedResult = false;
-        when(dbAccessOperations.findByID(id)).thenReturn(expectedResult);
-        boolean currentResult = dbAccessFacade.findAllById(id);
+    public void executeGetAll() {
+        List<Object> expectedResult = new ArrayList<Object>();
+        Product p1 = new Product(1, 5, "Mango", 35, "Buc", 12);
+        Product p2 = new Product(2, 5, "Avocado", 70, "Buc", 8);
+        Product p3 = new Product(3, 5, "Banane", 125, "Kg", 3);
+        when(dbAccessOperations.viewALL()).thenReturn(expectedResult);
+
+        List<Object> currentResult = new ArrayList<Object>();
+        currentResult = dbaoc.executeGetAll();
+
         assertEquals(expectedResult, currentResult);
     }
 
-    @Test
-    public void testFindALLByIdAssertTrue() {
-        int id = 10;
-        boolean expectedResult = true;
-        when(dbAccessOperations.findByID(id)).thenReturn(expectedResult);
-        boolean currentResult = dbAccessFacade.findAllById(id);
-        assertEquals(expectedResult, currentResult);
+    @Test(expected = Exception.class)
+    public void executeInsertItem() {
+        doThrow(Exception.class).when(dbAccessOperations).insert(new Object());
+        Product p1 = new Product(0, 11, "Mango", 0, "Bucasd", -1);
+        dbaoc.executeInsertItem(p1);
     }
 
-
-    @Test
-    public void testFindAllByName() {
-        String name = "Mango";
-        dbAccessFacade.findAllByName(name);
-        verify(dbAccessOperations).findByName(name);
+    @Test(expected = Exception.class)
+    public void executeDeleteItem() {
+        doThrow(Exception.class).when(dbAccessOperations).delete(anyInt());
+        int id = -5;
+        dbaoc.executeDeleteItem(id);
     }
 
-    @Test
-    public void testFindALLByNameAssert() {
-        String name = "Mango";
-        boolean expectedResult = true;
-        when(dbAccessOperations.findByName(name)).thenReturn(expectedResult);
-        boolean currentResult = dbAccessFacade.findAllByName(name);
-        assertEquals(expectedResult, currentResult);
-    }
-
-    @Test
-    public void testFindALLByNameAssertFalse() {
-        String name = "Capsuni";
-        boolean expectedResult = false;
-        when(dbAccessOperations.findByName(name)).thenReturn(expectedResult);
-        boolean currentResult = dbAccessFacade.findAllByName(name);
-        assertEquals(expectedResult, currentResult);
+    @Test(expected = Exception.class)
+    public void executeUpdateItem() {
+        doThrow(Exception.class).when(dbAccessOperations).update(new Object());
+        Product p1 = new Product(1, 5, "Mango", -100, "Buc", 12);
+        dbaoc.executeUpdateItem(p1);
     }
 
     @Test
     public void testUserObserverAssert() {
-        Product observable= new Product(1,1,"testname",200,"t",1);
-        User observer = new User(1,"testname","testpass");
+        Product observable = new Product(1, 1, "testname", 200, "t", 1);
+        User observer = new User(1, "testname", "testpass");
         observer.setFavourite(observable);
 
         observable.addPropertyChangeListener(observer);
         observable.setQuantity(100);
 
-        assertEquals(observer.getFavourite(),observable);
+        assertEquals(observer.getFavourite(), observable);
     }
 
 

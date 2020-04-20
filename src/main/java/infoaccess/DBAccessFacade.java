@@ -14,33 +14,6 @@ import java.util.List;
  */
 public class DBAccessFacade {
 
-    private DBAccessOperations dbao;
-
-    public DBAccessFacade(DBAccessOperations dbao) {
-        this.dbao = dbao;
-    }
-
-    /**
-     * Aceasta metoda nu a fost implementata  inca dar se stie cum ar
-     * trebui sa se comporte.
-     *
-     * @param id
-     * @return
-     */
-    public boolean findAllById(int id) {
-        return dbao.findByID(id);
-    }
-
-    /**
-     * Aceasta metoda nu a fost implementata  inca dar se stie cum ar
-     * trebui sa se comporte.
-     *
-     * @param name
-     * @return
-     */
-    public boolean findAllByName(String name) {
-        return dbao.findByName(name);
-    }
 
     /**
      * Aceasta metoda returneaza toate elementele dintr-o tabela
@@ -49,7 +22,7 @@ public class DBAccessFacade {
      * @param type Tipul de date dorit.
      * @return List<Object> Lista de entitati din tabela.
      */
-    public static List<Object> GetAll(String type) {
+    public static List<Object> getAll(String type) {
 
         List<Object> objects = new ArrayList<Object>();
         DBAOContext dbaoc;
@@ -80,7 +53,7 @@ public class DBAccessFacade {
      *
      * @param obj Obiectul care trebuie inserat.
      */
-    public static void InsertItem(Object obj) {
+    public static void insertItem(Object obj) {
         Class cls = obj.getClass();
         String type = cls.getSimpleName();
         DBAOContext dbaoc;
@@ -111,7 +84,7 @@ public class DBAccessFacade {
      * @param type Tipul tabelei din care se face stergerea.
      * @param id   ID-ul obiectului care trebuie sters.
      */
-    public static void DeleteItem(String type, int id) {
+    public static void deleteItem(String type, int id) {
         DBAOContext dbaoc;
         switch (type) {
             case "Product":
@@ -138,7 +111,7 @@ public class DBAccessFacade {
      *
      * @param obj Obiectul modificat.
      */
-    public static void UpdateItem(Object obj) {
+    public static void updateItem(Object obj) {
         Class cls = obj.getClass();
         String type = cls.getSimpleName();
         DBAOContext dbaoc;

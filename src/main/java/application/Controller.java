@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  * Aceasta clasa se ocupa in special de comunicarea aplicatiei
- * cu programul Postman.
+ * cu programul Postman
  */
 @RestController
 public class Controller {
@@ -29,7 +29,7 @@ public class Controller {
      */
     @GetMapping("/allProducts")
     public List<Object> GetAllProducts() {
-        return DBAccessFacade.GetAll("Product");
+        return DBAccessFacade.getAll("Product");
     }
 
     /**
@@ -43,7 +43,7 @@ public class Controller {
      */
     @RequestMapping(value = "/insertNewProduct", method = RequestMethod.POST)
     public String InsertNewProduct(@RequestBody Product prod) {
-        DBAccessFacade.InsertItem(prod);
+        DBAccessFacade.insertItem(prod);
         return prod.toString();
     }
 
@@ -57,7 +57,7 @@ public class Controller {
      */
     @RequestMapping(value = "/updateProduct", method = RequestMethod.PUT)
     public String UpdateProduct(@RequestBody Product prod) {
-        DBAccessFacade.UpdateItem(prod);
+        DBAccessFacade.updateItem(prod);
         return prod.toString();
     }
 
@@ -70,7 +70,7 @@ public class Controller {
      */
     @RequestMapping(value = "/deleteProduct/{id}", method = RequestMethod.DELETE)
     public String DeleteProduct(@PathVariable int id) {
-        DBAccessFacade.DeleteItem("Product", id);
+        DBAccessFacade.deleteItem("Product", id);
         return "Success";
     }
 
@@ -85,7 +85,7 @@ public class Controller {
      */
     @GetMapping("/allStores")
     public List<Object> GetAllStores() {
-        return DBAccessFacade.GetAll("Store");
+        return DBAccessFacade.getAll("Store");
     }
 
     /**
@@ -99,7 +99,7 @@ public class Controller {
      */
     @RequestMapping(value = "/insertNewStore", method = RequestMethod.POST)
     public String InsertNewStore(@RequestBody Store sto) {
-        DBAccessFacade.InsertItem(sto);
+        DBAccessFacade.insertItem(sto);
         return sto.toString();
     }
 
@@ -113,7 +113,7 @@ public class Controller {
      */
     @RequestMapping(value = "/updateStore", method = RequestMethod.PUT)
     public String UpdateStore(@RequestBody Store st) {
-        DBAccessFacade.UpdateItem(st);
+        DBAccessFacade.updateItem(st);
         return st.toString();
     }
 
@@ -126,7 +126,7 @@ public class Controller {
      */
     @RequestMapping(value = "/deleteStore/{id}", method = RequestMethod.DELETE)
     public String DeleteStore(@PathVariable int id) {
-        DBAccessFacade.DeleteItem("Store", id);
+        DBAccessFacade.deleteItem("Store", id);
         return "Success";
     }
 
@@ -141,7 +141,7 @@ public class Controller {
      */
     @GetMapping("/allUsers")
     public List<Object> GetAllUsers() {
-        return DBAccessFacade.GetAll("User");
+        return DBAccessFacade.getAll("User");
     }
 
     /**
@@ -155,7 +155,7 @@ public class Controller {
      */
     @RequestMapping(value = "/insertNewUser", method = RequestMethod.POST)
     public String InsertNewUser(@RequestBody User usr) {
-        DBAccessFacade.InsertItem(usr);
+        DBAccessFacade.insertItem(usr);
         return usr.toString();
     }
 
@@ -169,7 +169,7 @@ public class Controller {
      */
     @RequestMapping(value = "/updateUser", method = RequestMethod.PUT)
     public String UpdateUser(@RequestBody User usr) {
-        DBAccessFacade.UpdateItem(usr);
+        DBAccessFacade.updateItem(usr);
         return usr.toString();
     }
 
@@ -182,7 +182,7 @@ public class Controller {
      */
     @RequestMapping(value = "/deleteUser/{id}", method = RequestMethod.DELETE)
     public String DeleteUser(@PathVariable int id) {
-        DBAccessFacade.DeleteItem("User", id);
+        DBAccessFacade.deleteItem("User", id);
         return "Success";
     }
 
