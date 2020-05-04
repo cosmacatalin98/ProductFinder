@@ -20,8 +20,7 @@ Datele referitoare la produse, magazine și utilizatori vor fi stocate intr-o ba
 definirea proprietățiilor tipului de date și una pentru extragerea și prelucrarea datelor din baza de date.De asemnea vor exista clase adiționale care se vor ocupa cu realizarea comunicării dintre clasele de logică și partea de *interfață utilizator*.
 ### Partea de front end (UI)
 Această parte va avea rolul de a prezenta utilizatorului o interfață grafică sub forma unei pagini de web prin intermediul căreia să se
-faciliteze utilizarea aplicației de către acesta.Pagina de web va fi fi implementată cu ajutorul limbajului HTML.
-
+faciliteze utilizarea aplicației de către acesta.Pagina de web va fi fi implementată cu ajutorul framework-ului Angular și o combinație de limbaje precum : HTML, CSS, TypeScript.
 ## Descrierea soluției
 Responsabilitatea claselor din aplicație este împărțită pe pachete după cum urmează:
 ![alt text](https://github.com/cosmacatalin98/ProductFinder/blob/master/UMLPackageDiagarm.jpeg)
@@ -46,4 +45,6 @@ Clasa ConnectionFactory se ocupă în special de implementarea operațiilor lega
 
 Clasa PFApplication conține o singură metodă (main) și este utilizată pentru rularea aplicației.
 
+Funcționarea internă a aplicației se poate observa în următoarea diagramă de secvențe unde este prezentat un exemplu de căutare după nume a unui produs , acțiune realizată de un utilizator oarecare prin intermediul Interfeței Utilizator sau UI(User Interface) prezentată sub forma unei pagini Web.
 
+![alt text](https://github.com/cosmacatalin98/ProductFinder/blob/master/UMLSequenceDiagram.jpeg)
