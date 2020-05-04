@@ -84,6 +84,7 @@ public class Controller {
      * @param name Parametru String dupa care se face cautarea.
      * @return List<Object> Returneaza o lista cu produsele gasite.
      */
+    @CrossOrigin
     @RequestMapping(value = "/findByName/{name}", method = RequestMethod.GET)
     public List<Product> findByName(@PathVariable String name) {
         return DBAccessFacade.findByName(name);
