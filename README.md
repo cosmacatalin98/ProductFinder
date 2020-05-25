@@ -55,7 +55,26 @@ faciliteze utilizarea aplicației de către acesta.Pagina de web va fi fi implem
 La accesarea aplicației web se afișează o pagină de autentificare care are rolul de a permite accesul la aplicație în funcție de tipul de cont al persoanei care se autentifică. Există două tipuri de conturi care au asociate diferite privilegii :
 - cont de tip utilizator
 - cont de tip administrator
-Ambele tipuri necesită o autentificare pe baza unui nume de utilizator și o parolă.
+
+Ambele tipuri necesită o autentificare pe baza unui nume de utilizator și a unei parole.
 
 ![alt text](https://github.com/cosmacatalin98/ProductFinder/blob/master/log-in.jpeg)
+
+După autentificarea cu succes cu un cont de tip utilizator se va afișa o pagină web care permite  căutarea unui produs comercial după nume, dacă produsul există și a fost găsit se vor afișa informații despre acesta precum :
+
+- prețul
+- centrele comerciale la care se găsește
+- stocul de la un anumit centru comercial pentru produsul respectiv
+
+De asemenea utilizatorul poate să sorteze produsele în funcție de anumite criterii precum :
+- preț
+- cantitate
+
+
+![alt text](https://github.com/cosmacatalin98/ProductFinder/blob/master/user.jpeg)
+
+La autentificarea cu succes pentru un cont de tip administrator se va afișa o pagină web care permite  administrarea produselor din baza de date. În această pagină se pot realiza operații de adăugare, ștergere, actualizare și vizualizare.
+
+![alt text](https://github.com/cosmacatalin98/ProductFinder/blob/master/admin.jpeg)
+
 
