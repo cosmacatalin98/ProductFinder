@@ -27,6 +27,7 @@ public class Controller {
      *
      * @return List<Object>  Returneaza o lista cu toate produsele.
      */
+    @CrossOrigin
     @GetMapping("/allProducts")
     public List<Object> getAllProducts() {
         return DBAccessFacade.getAll("Product");
@@ -41,6 +42,8 @@ public class Controller {
      * @return String  Returneaza obiectul ca si String pe post de mesaj
      * de confirmare.
      */
+
+    @CrossOrigin
     @RequestMapping(value = "/insertNewProduct", method = RequestMethod.POST)
     public String insertNewProduct(@RequestBody Product prod) {
         DBAccessFacade.insertItem(prod);
@@ -56,6 +59,7 @@ public class Controller {
      * @return String  Returneaza obiectul ca si String pe post de mesaj
      * de confirmare.
      */
+    @CrossOrigin
     @RequestMapping(value = "/updateProduct", method = RequestMethod.PUT)
     public String updateProduct(@RequestBody Product prod) {
         DBAccessFacade.updateItem(prod);
@@ -70,6 +74,7 @@ public class Controller {
      * @param id Id-ul dupa care se realizeaza stergerea.
      * @return String  Returneaza un mesaj de confirmare.
      */
+    @CrossOrigin
     @RequestMapping(value = "/deleteProduct/{id}", method = RequestMethod.DELETE)
     public String deleteProduct(@PathVariable int id) {
         DBAccessFacade.deleteItem("Product", id);
@@ -85,8 +90,8 @@ public class Controller {
      * @return List<Object> Returneaza o lista cu produsele gasite.
      */
     @CrossOrigin
-    @RequestMapping(value = "/findByName/{name}", method = RequestMethod.GET)
-    public List<Product> findByName(@PathVariable String name) {
+    @RequestMapping(value = "/findByName/", method = RequestMethod.GET)
+    public List<Product> findByName(@RequestParam String name) {
         return DBAccessFacade.findByName(name);
     }
 
@@ -100,8 +105,9 @@ public class Controller {
      * @param name Parametrul String dupa care se face cautarea.
      * @return List<Product> Returneaza o lista cu produsele gasite.
      */
-    @RequestMapping(value = "/sortByPrice/{name}", method = RequestMethod.GET)
-    public List<Product> sortByPrice(@PathVariable String name) {
+    @CrossOrigin
+    @RequestMapping(value = "/sortByPrice/", method = RequestMethod.GET)
+    public List<Product> sortByPrice(@RequestParam String name) {
         return DBAccessFacade.sortProducts(name, "Price");
     }
 
@@ -115,8 +121,9 @@ public class Controller {
      * @param name Parametrul String dupa care se face cautarea.
      * @return List<Product> Returneaza o lista cu produsele gasite.
      */
-    @RequestMapping(value = "/sortByQuantity/{name}", method = RequestMethod.GET)
-    public List<Product> sortByQuantity(@PathVariable String name) {
+    @CrossOrigin
+    @RequestMapping(value = "/sortByQuantity/", method = RequestMethod.GET)
+    public List<Product> sortByQuantity(@RequestParam String name) {
         return DBAccessFacade.sortProducts(name, "Quantity");
     }
 
@@ -129,6 +136,7 @@ public class Controller {
      *
      * @return List<Object>  Returneaza o lista cu toate magazinele.
      */
+    @CrossOrigin
     @GetMapping("/allStores")
     public List<Object> getAllStores() {
         return DBAccessFacade.getAll("Store");
@@ -143,6 +151,7 @@ public class Controller {
      * @return String  Returneaza obiectul ca si String pe post de mesaj
      * de confirmare.
      */
+    @CrossOrigin
     @RequestMapping(value = "/insertNewStore", method = RequestMethod.POST)
     public String insertNewStore(@RequestBody Store sto) {
         DBAccessFacade.insertItem(sto);
@@ -158,6 +167,7 @@ public class Controller {
      * @return String  Returneaza obiectul ca si String pe post de mesaj
      * de confirmare.
      */
+    @CrossOrigin
     @RequestMapping(value = "/updateStore", method = RequestMethod.PUT)
     public String updateStore(@RequestBody Store st) {
         DBAccessFacade.updateItem(st);
@@ -172,6 +182,7 @@ public class Controller {
      * @param id Id-ul dupa care se realizeaza stergerea.
      * @return String  Returneaza un mesaj de confirmare.
      */
+    @CrossOrigin
     @RequestMapping(value = "/deleteStore/{id}", method = RequestMethod.DELETE)
     public String deleteStore(@PathVariable int id) {
         DBAccessFacade.deleteItem("Store", id);
@@ -187,6 +198,7 @@ public class Controller {
      *
      * @return List<Object>  Returneaza o lista cu toti utilizatorii.
      */
+    @CrossOrigin
     @GetMapping("/allUsers")
     public List<Object> getAllUsers() {
         return DBAccessFacade.getAll("User");
@@ -201,6 +213,7 @@ public class Controller {
      * @return String  Returneaza obiectul ca si String pe post de mesaj
      * de confirmare.
      */
+    @CrossOrigin
     @RequestMapping(value = "/insertNewUser", method = RequestMethod.POST)
     public String insertNewUser(@RequestBody User usr) {
         DBAccessFacade.insertItem(usr);
@@ -216,6 +229,7 @@ public class Controller {
      * @return String  Returneaza obiectul ca si String pe post de mesaj
      * de confirmare.
      */
+    @CrossOrigin
     @RequestMapping(value = "/updateUser", method = RequestMethod.PUT)
     public String updateUser(@RequestBody User usr) {
         DBAccessFacade.updateItem(usr);
@@ -230,6 +244,7 @@ public class Controller {
      * @param id Id-ul dupa care se realizeaza stergerea.
      * @return String  Returneaza un mesaj de confirmare.
      */
+    @CrossOrigin
     @RequestMapping(value = "/deleteUser/{id}", method = RequestMethod.DELETE)
     public String deleteUser(@PathVariable int id) {
         DBAccessFacade.deleteItem("User", id);
