@@ -18,9 +18,7 @@ Această parte se va ocupa în special cu prelucrarea datelor și cu operațiile
 Datele referitoare la produse, magazine și utilizatori vor fi stocate intr-o bază de date cu mai multe tabele iar obținerea
 și prelucrarea datelor se va realizeaza folosind limbajul Java astfel fiecare tip de date va avea asociat câte două clase, una pentru
 definirea proprietățiilor tipului de date și una pentru extragerea și prelucrarea datelor din baza de date.De asemnea vor exista clase adiționale care se vor ocupa cu realizarea comunicării dintre clasele de logică și partea de *interfață utilizator*.
-### Partea de front end (UI)
-Această parte va avea rolul de a prezenta utilizatorului o interfață grafică sub forma unei pagini de web prin intermediul căreia să se
-faciliteze utilizarea aplicației de către acesta.Pagina de web va fi fi implementată cu ajutorul framework-ului Angular și o combinație de limbaje precum : HTML, CSS, TypeScript.
+
 ## Descrierea soluției
 Responsabilitatea claselor din aplicație este împărțită pe pachete după cum urmează:
 ![alt text](https://github.com/cosmacatalin98/ProductFinder/blob/master/UMLPackageDiagarm.jpeg)
@@ -48,3 +46,16 @@ Clasa PFApplication conține o singură metodă (main) și este utilizată pentr
 Funcționarea internă a aplicației se poate observa în următoarea diagramă de secvențe unde este prezentat un exemplu de căutare după nume a unui produs , acțiune realizată de un utilizator oarecare prin intermediul Interfeței Utilizator sau UI(User Interface) prezentată sub forma unei pagini Web.
 
 ![alt text](https://github.com/cosmacatalin98/ProductFinder/blob/master/UMLSequenceDiagram.jpeg)
+
+### Partea de front end (UI)
+Această parte va avea rolul de a prezenta utilizatorului o interfață grafică sub forma unei pagini web prin intermediul căreia să se
+faciliteze utilizarea aplicației de către acesta.Pagina de web va fi fi implementată cu ajutorul framework-ului Angular și o combinație de limbaje precum : HTML, CSS, TypeScript.
+
+## Descrierea soluției
+La accesarea aplicației web se afișează o pagină de autentificare care are rolul de a permite accesul la aplicație în funcție de tipul de cont al persoanei care se autentifică. Există două tipuri de conturi care au asociate diferite privilegii :
+- cont de tip utilizator
+- cont de tip administrator
+Ambele tipuri necesită o autentificare pe baza unui nume de utilizator și o parolă.
+
+![alt text](https://github.com/cosmacatalin98/ProductFinder/blob/master/log-in.jpeg)
+
