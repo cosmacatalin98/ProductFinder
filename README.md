@@ -1,5 +1,6 @@
 # Product Finder
 ## Descrierea problemei
+
 Aplicația Product Finder oferă utilizatorilor posibilitatea de a găsi cu ușurință un anumit produs prin simpla căutare după nume a acestuia.
 Aceasta oferă informații specifice despre produs cum ar fi :
 - prețul
@@ -50,6 +51,7 @@ Funcționarea internă a aplicației se poate observa în următoarea diagramă 
 ### Partea de front end (UI)
 Această parte va avea rolul de a prezenta utilizatorului o interfață grafică sub forma unei pagini web prin intermediul căreia să se
 faciliteze utilizarea aplicației de către acesta.Pagina de web va fi fi implementată cu ajutorul framework-ului Angular și o combinație de limbaje precum : HTML, CSS, TypeScript.
+Aplicația poate fi accesată la următorul link : https://stackblitz.com/edit/product-finder-zndzta
 
 ## Descrierea soluției
 La accesarea aplicației web se afișează o pagină de autentificare care are rolul de a permite accesul la aplicație în funcție de tipul de cont al persoanei care se autentifică. Există două tipuri de conturi care au asociate diferite privilegii :
